@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event World</title>
+  <style>
+    /* Mengatur tata letak elemen yang ada di dalam class contents */
+    .contents {
+      position: fixed; /* Elemen tetap pada posisi tertentu di layar */
+      top: 50%; /* Menempatkan elemen di tengah vertikal */
+      left: 50%; /* Menempatkan elemen di tengah horizontal */
+      transform: translate(-50%, -50%); /* Memastikan elemen tepat berada di tengah */
+      border: 2px solid black; /* Menambahkan border hitam di sekitar elemen */
+      padding: 15px; /* Memberikan jarak di dalam elemen */
+    }
+    
+    /* Mengatur margin tombol dengan id generateButton (walau tidak digunakan di kode ini) */
+    #generateButton {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Elemen pembungkus utama yang awalnya tersembunyi -->
+  <div class="contents" align="center" hidden>
+    <!-- Tombol dengan id incrementButton untuk meningkatkan counter -->
+    <button id="incrementButton">Tekan Aku :)</button>
+    <!-- Teks yang menampilkan jumlah klik pada tombol -->
+    <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3>
+  </div>
+ 
+  <script>
+    // Fungsi untuk meningkatkan nilai counter
+    function increment() {
+      // Menambah nilai pada elemen dengan id 'count'
+      document.getElementById('count').innerText++;
+      
+      // Jika nilai counter mencapai 7, tampilkan pesan tersembunyi
+      if (document.getElementById('count').innerText == 7) {
+        // Membuat elemen <h4> dengan pesan khusus
+        const hiddenMessage = document.createElement('h4');
+        hiddenMessage.innerText = 'Selamat! Anda menemukan hadiah tersembunyi...';
+        
+        // Membuat elemen gambar dengan URL tertentu
+        const image = document.createElement('img');
+        image.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/dicodingacademy/a315-web-pemula-labs/shared-files/catto.jpg',
+        );
+
+        // Menambahkan pesan dan gambar ke elemen dengan class 'contents'
+        const contents = document.querySelector('.contents');
+        contents.appendChild(hiddenMessage).appendChild(image);
+      }
+    }
+
+    // Fungsi untuk menyambut pengguna dan menampilkan elemen yang tersembunyi
+    function welcome() {
+      // Menampilkan alert kepada pengguna
+      alert('Sim salabim muncullah elemen-elemen HTML!');
+      
+      // Menghapus atribut 'hidden' pada elemen dengan class 'contents'
+      const contents = document.querySelector('.contents');
+      contents.removeAttribute('hidden');
+    }
+
+    // Menentukan aksi saat tombol incrementButton diklik
+    document.getElementById('incrementButton').onclick = increment;
+    // Menjalankan fungsi welcome saat halaman selesai dimuat
+    document.body.onload = welcome;
+  </script>
+</body>
+</html>

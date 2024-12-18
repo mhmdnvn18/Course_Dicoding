@@ -1,0 +1,40 @@
+<script>
+  // Fungsi untuk meningkatkan nilai counter
+  function increment() {
+    // Menambah nilai pada elemen dengan id 'count'
+    document.getElementById('count').innerText++;
+    
+    // Jika nilai counter mencapai 7, tampilkan pesan tersembunyi
+    if (document.getElementById('count').innerText == 7) {
+      // Membuat elemen <h4> dengan pesan khusus
+      const hiddenMessage = document.createElement('h4');
+      hiddenMessage.innerText = 'Selamat! Anda menemukan hadiah tersembunyi...';
+      
+      // Membuat elemen gambar dengan URL tertentu
+      const image = document.createElement('img');
+      image.setAttribute(
+        'src',
+        'https://raw.githubusercontent.com/dicodingacademy/a315-web-pemula-labs/shared-files/catto.jpg',
+      );
+
+      // Menambahkan pesan dan gambar ke elemen dengan class 'contents'
+      const contents = document.querySelector('.contents');
+      contents.appendChild(hiddenMessage).appendChild(image);
+    }
+  }
+
+  // Fungsi untuk menyambut pengguna dan menampilkan elemen yang tersembunyi
+  function welcome() {
+    // Menampilkan alert kepada pengguna
+    alert('Sim salabim muncullah elemen-elemen HTML!');
+    
+    // Menghapus atribut 'hidden' pada elemen dengan class 'contents'
+    const contents = document.querySelector('.contents');
+    contents.removeAttribute('hidden');
+  }
+
+  // Menentukan aksi saat tombol incrementButton diklik
+  document.getElementById('incrementButton').onclick = increment;
+  // Menjalankan fungsi welcome saat halaman selesai dimuat
+  document.body.onload = welcome;
+</script>

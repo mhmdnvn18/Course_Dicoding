@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event World</title> <!-- Menentukan judul halaman -->
+  <style>
+    /* Gaya untuk elemen dengan kelas "contents" */
+    .contents {
+      position: fixed; /* Menetapkan elemen tetap pada layar meskipun halaman di-scroll */
+      top: 50%; /* Menempatkan elemen di tengah secara vertikal */
+      left: 50%; /* Menempatkan elemen di tengah secara horizontal */
+      transform: translate(-50%, -50%); /* Memastikan elemen sepenuhnya berada di tengah */
+      border: 2px solid black; /* Menambahkan garis tepi hitam dengan lebar 2px */
+      padding: 15px; /* Menambahkan jarak di dalam elemen */
+    }
+    
+    /* Gaya tambahan untuk elemen dengan ID "generateButton" */
+    #generateButton {
+      margin-top: 5px; /* Memberikan jarak di atas elemen */
+      margin-bottom: 15px; /* Memberikan jarak di bawah elemen */
+    }
+  </style>
+</head>
+<body onload="welcome()"> <!-- Memanggil fungsi welcome() saat halaman selesai dimuat -->
+<div class="contents" align="center" hidden> <!-- Elemen ini tersembunyi saat pertama kali halaman dimuat -->
+  <button id="incrementButton" onclick="increment()">Tekan Aku :)</button> <!-- Tombol dengan event onclick untuk memanggil fungsi increment() -->
+  <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3> <!-- Menampilkan jumlah klik tombol, nilai awalnya 0 -->
+</div>
+ 
+<script>
+  function increment() {
+    // Menambahkan nilai pada elemen dengan ID 'count'
+    document.getElementById('count').innerText++;
+    
+    // Jika nilai counter mencapai 7, tampilkan pesan tersembunyi dan gambar
+    if (document.getElementById('count').innerText == 7) {
+      const hiddenMessage = document.createElement('h4'); // Membuat elemen <h4> baru
+      hiddenMessage.innerText = 'Selamat! Anda menemukan hadiah tersembunyi...'; // Menambahkan teks ke elemen <h4>
+      const image = document.createElement('img'); // Membuat elemen <img> baru
+      image.setAttribute('src', 'https://i.ibb.co/0V49VRZ/catto.jpg'); // Menambahkan atribut src untuk gambar
+      const contents = document.querySelector('.contents'); // Mengambil elemen dengan kelas "contents"
+      contents.appendChild(hiddenMessage).appendChild(image); // Menambahkan pesan dan gambar ke elemen "contents"
+    }
+  }
+  
+  function welcome() {
+    alert('Sim salabim muncullah elemen-elemen HTML!'); // Menampilkan pesan sambutan
+    const contents = document.querySelector('.contents'); // Mengambil elemen dengan kelas "contents"
+    contents.removeAttribute('hidden'); // Menghapus atribut "hidden" untuk menampilkan elemen
+  }
+  
+  // document.getElementById('incrementButton').onclick = increment; // Baris ini dikomentari, fungsi increment() sudah dipanggil melalui atribut onclick di HTML
+  // document.body.onload = welcome; // Baris ini dikomentari, fungsi welcome() sudah dipanggil melalui atribut onload di HTML
+</script>
+</body>
+</html>
