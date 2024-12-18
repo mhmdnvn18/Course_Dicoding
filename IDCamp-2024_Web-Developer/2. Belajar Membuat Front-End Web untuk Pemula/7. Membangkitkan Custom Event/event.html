@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>Event World</title> <!-- Menentukan judul halaman -->
+    <style>
+      /* Mengatur gaya elemen */
+      .buttons {
+        position: fixed; /* Menempatkan elemen secara tetap di layar */
+        top: 50%; /* Mengatur posisi vertikal elemen ke tengah */
+        left: 50%; /* Mengatur posisi horizontal elemen ke tengah */
+        transform: translate(-50%, -50%); /* Memastikan elemen berada di tengah sempurna */
+        border: 2px solid black; /* Memberikan garis tepi hitam */
+        padding: 15px; /* Memberikan jarak di dalam elemen */
+      }
+ 
+      .button {
+        margin: 8px; /* Memberikan jarak antar tombol */
+        height: 40px; /* Menentukan tinggi tombol */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Elemen untuk tombol dan teks -->
+    <div class="buttons" align="center">
+      <h3 id="caption">Silakan tekan salah satu tombol di bawah...</h3> <!-- Teks yang akan berubah -->
+      <button class="button" id="tombol">Tombol Custom Event</button> <!-- Tombol untuk memicu event -->
+    </div>
+ 
+    <script>
+        // Membuat custom event bernama 'changeCaption'
+        const changeCaption = new Event('changeCaption');
+       
+        // Menambahkan event listener ketika halaman selesai dimuat
+        window.addEventListener('load', function () {
+          const tombol = document.getElementById('tombol'); // Mendapatkan elemen tombol berdasarkan ID
+       
+          // Menambahkan listener untuk custom event 'changeCaption'
+          tombol.addEventListener('changeCaption', customEventHandler);
+
+          // Menambahkan listener untuk event 'click'
+          tombol.addEventListener('click', function () {
+            tombol.dispatchEvent(changeCaption); // Memicu custom event 'changeCaption'
+          });
+        });
+       
+        // Fungsi untuk menangani custom event 'changeCaption'
+        function customEventHandler(ev) {
+          console.log('Event ' + ev.type + ' telah dijalankan'); // Menampilkan log di konsol saat event dijalankan
+          const caption = document.getElementById('caption'); // Mendapatkan elemen teks berdasarkan ID
+          caption.innerText = 'Anda telah membangkitkan custom event'; // Mengubah teks elemen
+        }
+      </script>
+  </body>
+</html>

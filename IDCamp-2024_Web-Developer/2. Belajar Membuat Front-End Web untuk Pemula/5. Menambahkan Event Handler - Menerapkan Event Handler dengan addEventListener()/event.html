@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event World</title> <!-- Judul halaman -->
+  <style>
+    .contents {
+      position: fixed; /* Menetapkan posisi tetap pada layar */
+      top: 50%; /* Mengatur elemen di tengah secara vertikal */
+      left: 50%; /* Mengatur elemen di tengah secara horizontal */
+      transform: translate(-50%, -50%); /* Menggeser elemen agar berada tepat di tengah */
+      border: 2px solid black; /* Menambahkan garis tepi hitam */
+      padding: 15px; /* Memberikan jarak di dalam elemen */
+    }
+    
+    #generateButton {
+      margin-top: 5px; /* Jarak atas elemen */
+      margin-bottom: 15px; /* Jarak bawah elemen */
+    }
+  </style>
+</head>
+<body>
+<div class="contents" align="center" hidden> <!-- Elemen ini disembunyikan saat halaman dimuat -->
+  <button id="incrementButton">Tekan Aku :)</button> <!-- Tombol yang akan memicu fungsi increment -->
+  <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3> <!-- Menampilkan jumlah klik -->
+</div>
+ 
+<script>
+  function increment() {
+    // Menambah nilai teks elemen dengan ID 'count'
+    document.getElementById('count').innerText++;
+    
+    // Ketika nilai count mencapai 7, tampilkan pesan tersembunyi dan gambar
+    if (document.getElementById('count').innerText == 7) {
+      const hiddenMessage = document.createElement('h4'); // Membuat elemen <h4>
+      hiddenMessage.innerText = 'Selamat! Anda menemukan hadiah tersembunyi...'; // Menambahkan teks pada elemen <h4>
+ 
+      const image = document.createElement('img'); // Membuat elemen <img>
+      image.setAttribute('src', 'https://i.ibb.co/0V49VRZ/catto.jpg'); // Menambahkan atribut sumber gambar
+ 
+      const contents = document.querySelector('.contents'); // Mengambil elemen dengan kelas "contents"
+      contents.appendChild(hiddenMessage).appendChild(image); // Menambahkan elemen pesan dan gambar ke elemen contents
+    }
+  }
+  
+  function welcome() {
+    alert('Sim salabim muncullah elemen-elemen HTML!'); // Menampilkan pesan saat halaman dimuat
+    const contents = document.querySelector('.contents'); // Mengambil elemen dengan kelas "contents"
+    contents.removeAttribute('hidden'); // Menghapus atribut hidden untuk menampilkan elemen
+  }
+  
+  // Menambahkan event listener untuk memanggil fungsi welcome saat halaman selesai dimuat
+  window.addEventListener('load', welcome);
+
+  // Menambahkan event listener untuk memanggil fungsi increment saat tombol diklik
+  document.getElementById('incrementButton').addEventListener('click', increment);
+</script>
+</body>
+</html>
