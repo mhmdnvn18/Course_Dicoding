@@ -1,0 +1,29 @@
+.contents {
+    /* Menambahkan padding di dalam elemen sebesar 8px */
+    padding: 8px;
+    /* Menambahkan border dengan ketebalan 2px, warna hitam, dan tipe solid */
+    border: 2px solid black;
+  
+    /* Mengatur posisi elemen agar tetap di tempat (fixed) meskipun halaman di-scroll */
+    position: fixed;
+    /* Menempatkan elemen di tengah secara vertikal (50% dari tinggi viewport) */
+    top: 50%;
+    /* Menempatkan elemen di tengah secara horizontal (50% dari lebar viewport) */
+    left: 50%;
+  
+    /* Menerapkan transformasi untuk menggeser elemen agar benar-benar terpusat */
+    transform: translate(-50%, -50%);
+  }
+  
+  .form-element {
+    /* Menambahkan margin di sekitar elemen sebesar 8px */
+    margin: 8px;
+    /* Mengatur teks dalam elemen menjadi rata kiri */
+    text-align: left;
+  }
+  
+  #notifikasiSisaKarakter {
+    /* Menyembunyikan elemen dengan ID 'notifikasiSisaKarakter' secara visual */
+    visibility: hidden;
+  }
+  

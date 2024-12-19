@@ -1,0 +1,21 @@
+.contents {
+  /* Mengatur posisi elemen .contents menjadi tetap (tidak bergeser saat scrolling) */
+  position: fixed;
+  /* Menempatkan elemen di tengah secara vertikal (50% dari tinggi viewport) */
+  top: 50%;
+  /* Menempatkan elemen di tengah secara horizontal (50% dari lebar viewport) */
+  left: 50%;
+  /* Menerapkan transformasi untuk menggeser elemen agar benar-benar terpusat */
+  transform: translate(-50%, -50%);
+  /* Memberikan border dengan ketebalan 2px, warna hitam, dan tipe solid */
+  border: 2px solid black;
+  /* Menambahkan ruang di dalam elemen sekitar 15px */
+  padding: 15px;
+}
+
+.form-element {
+  /* Menambahkan margin sebesar 8px di sekitar elemen */
+  margin: 8px;
+  /* Mengatur teks dalam elemen ini menjadi rata kiri */
+  text-align: left;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Mendefinisikan karakter encoding dokumen sebagai UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Menentukan judul halaman web -->
+    <title>Form World</title>
+
+    <!-- Menyertakan file CSS eksternal untuk styling -->
+    <link rel="stylesheet" href="styles.css" >
+  </head>
+  <body>
+    <!-- Membuat container utama untuk konten halaman -->
+    <div class="contents">
+      <!-- Menampilkan judul form di tengah halaman -->
+      <h2 align="center">Isi data diri</h2>
+
+      <!-- Membuat container untuk form input -->
+      <div class="formContent">
+        <!-- Membuat elemen form dengan ID "formDataDiri" -->
+        <form id="formDataDiri">
+          <!-- Membuat elemen form untuk input nama -->
+          <div class="form-element">
+            <!-- Label untuk input nama dengan atribut "for" yang sesuai dengan ID input -->
+            <label for="inputNama">Nama:</label>
+            <br>
+            <!-- Input field untuk nama dengan placeholder dan atribut "required" -->
+            <input id="inputNama" type="text" name="nama" placeholder="Nama Anda" required>
+            <br>
+          </div>
+
+          <!-- Membuat elemen form untuk input domisili -->
+          <div class="form-element">
+            <!-- Label untuk input domisili dengan atribut "for" yang sesuai dengan ID input -->
+            <label for="inputDomisili">Domisili:</label>
+            <br>
+            <!-- Input field untuk domisili dengan placeholder dan atribut "required" -->
+            <input
+              id="inputDomisili"
+              type="text"
+              name="domisili"
+              placeholder="Domisili Anda"
+              required
+            >
+            <br>
+          </div>
+
+          <!-- Membuat tombol submit untuk mengirimkan data form -->
+          <div class="form-element">
+            <input id="submitButton" type="submit" value="Submit Data">
+          </div>
+        </form>
+      </div>
+
+      <!-- Menyediakan elemen untuk menampilkan pesan setelah data dikirim -->
+      <h3 id="messageAfterSubmit"></h3>
+    </div>
+
+    <!-- Menyertakan file JavaScript eksternal untuk fungsionalitas -->
+    <script src="index.js"></script>
+  </body>
+</html>

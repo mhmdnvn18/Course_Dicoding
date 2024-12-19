@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Mendefinisikan karakter encoding dokumen sebagai UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Menentukan judul halaman web -->
+    <title>Form World</title>
+
+    <!-- Menyertakan file CSS eksternal untuk styling -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Membuat container utama untuk konten halaman -->
+    <div class="contents">
+      <!-- Menampilkan judul form di tengah halaman -->
+      <h2 align="center">Input Event Form</h2>
+
+      <!-- Membuat container untuk form input -->
+      <div class="formContent">
+        <!-- Membuat elemen form dengan ID 'formDataDiri' dan menonaktifkan fitur autocomplete -->
+        <form id="formDataDiri" autocomplete="off">
+          <!-- Bagian form untuk memasukkan nama panggilan -->
+          <div class="form-element" id="fieldName">
+            <!-- Label untuk input nama panggilan -->
+            <label for="inputNama">Nama Panggilan:</label>
+            <br>
+            <!-- Input field untuk nama panggilan dengan placeholder dan batasan maksimal 15 karakter -->
+            <input
+              id="inputNama"
+              type="text"
+              name="nama"
+              placeholder="Nama panggilan Anda"
+              maxlength="15"
+            >
+            <br>
+            <!-- Label untuk menampilkan jumlah sisa karakter -->
+            <label id="notifikasiSisaKarakter">
+              Sisa karakter: <span id="sisaKarakter"></span>
+            </label>
+          </div>
+
+          <!-- Bagian form untuk menyalin teks -->
+          <div class="form-element" id="fieldCopy">
+            <!-- Label untuk input salinan teks -->
+            <label for="inputCopy"><i>Copy</i> tulisan ini:</label>
+            <br>
+            <!-- Input field yang hanya bisa dibaca dengan nilai default "Hello World!" -->
+            <input id="inputCopy" type="text" name="copy" value="Hello World!" readonly>
+            <br>
+          </div>
+
+          <!-- Bagian form untuk menempelkan teks -->
+          <div class="form-element" id="fieldPaste">
+            <!-- Label untuk input menempelkan teks -->
+            <label for="inputPaste"><i>Paste</i> tulisan di sini:</label>
+            <br>
+            <!-- Input field untuk menerima teks yang ditempel -->
+            <input id="inputPaste" type="text" name="paste" placeholder="Paste sesuatu di sini">
+            <br>
+          </div>
+
+          <!-- Bagian form untuk menulis captcha -->
+          <div class="form-element" id="fieldCaptcha">
+            <!-- Label untuk input captcha -->
+            <label for="inputCaptcha">Tulis <i>captcha</i> berikut.</label>
+            <br>
+            <!-- Gambar captcha sebagai referensi teks yang harus dimasukkan -->
+            <img src="https://raw.githubusercontent.com/dicodingacademy/a315-web-pemula-labs/shared-files/captcha.png" alt="Captcha">
+            <br>
+            <!-- Input field untuk menulis captcha -->
+            <input
+              id="inputCaptcha"
+              type="text"
+              name="captcha"
+              placeholder="Tulis captcha di sini"
+            >
+            <br>
+            <!-- Pesan instruksi untuk menekan tombol Enter setelah selesai -->
+            <p>Tekan Enter pada keyboard jika sudah selesai menulis <i>captcha</i></p>
+          </div>
+
+          <!-- Tombol submit untuk mengirimkan data form -->
+          <div class="form-element" align="center">
+            <!-- Tombol submit yang dinonaktifkan secara default -->
+            <input id="submitButton" type="submit" value="Submit Data" disabled>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Menyertakan file JavaScript eksternal untuk fungsionalitas -->
+    <script src="index.js"></script>
+  </body>
+</html>
